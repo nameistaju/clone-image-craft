@@ -23,15 +23,16 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-  const [theme, setTheme] = useState<Theme>('light');
+  const [theme, setTheme] = useState<Theme>('dark');
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme') as Theme;
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
     if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
       setTheme(savedTheme);
     } else {
-      // Default to light mode
-      setTheme('light');
+      setTheme(systemPrefersDark ? 'dark' : 'light');
     }
   }, []);
 
@@ -41,12 +42,11 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     
     if (theme === 'dark') {
       root.classList.add('dark');
+      root.classList.remove('light');
     } else {
       root.classList.remove('dark');
+      root.classList.add('light');
     }
-    
-    // Force a re-render by updating a CSS custom property
-    root.style.setProperty('--theme-transition', 'all 0.3s ease');
   }, [theme]);
 
   const toggleTheme = () => {

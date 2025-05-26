@@ -1,19 +1,7 @@
 
 # Eclypse Backend API
 
-A Node.js/Express backend API for the Eclypse fashion website.
-
-## Features
-
-- RESTful API endpoints
-- CORS enabled for frontend connection
-- Product management
-- Category management
-- Search functionality
-- Waitlist signup
-- Contact form handling
-
-## Installation
+## Setup
 
 1. Navigate to the backend directory:
 ```bash
@@ -30,53 +18,28 @@ npm install
 npm run dev
 ```
 
-The server will start on http://localhost:5000
+The server will run on `http://localhost:5000`
 
 ## API Endpoints
 
-### Products
-- `GET /api/products` - Get all products
-- `GET /api/products/:id` - Get single product
-- `GET /api/search?q=term` - Search products
-
-### Categories
+- `GET /api/health` - Health check
+- `GET /api/products` - Get all products (supports query params: category, search, sort)
+- `GET /api/products/:id` - Get product by ID
 - `GET /api/categories` - Get all categories
+- `POST /api/waitlist` - Add email to waitlist
 
-### Other
-- `POST /api/waitlist` - Join waitlist
-- `POST /api/contact` - Send contact message
+## Example Usage
 
-### Query Parameters
+```bash
+# Get all products
+curl http://localhost:5000/api/products
 
-For `/api/products`:
-- `category` - Filter by category
-- `featured` - Filter featured products (true/false)
-- `inStock` - Filter in-stock products (true/false)
+# Search products
+curl http://localhost:5000/api/products?search=vermilion
 
-For `/api/search`:
-- `q` - Search term
-- `priceMin` - Minimum price filter
-- `priceMax` - Maximum price filter
+# Filter by category
+curl http://localhost:5000/api/products?category=clothing
 
-## Example Responses
-
-### GET /api/products
-```json
-{
-  "success": true,
-  "count": 3,
-  "data": [
-    {
-      "id": 1,
-      "name": "Silhouette No. 1 – Vermilion",
-      "price": 7999,
-      "description": "A tailored composition in motion...",
-      "category": "outerwear",
-      "images": ["..."],
-      "sizes": ["XS", "S", "M", "L", "XL"],
-      "inStock": true,
-      "featured": true
-    }
-  ]
-}
+# Sort by price
+curl http://localhost:5000/api/products?sort=price-low
 ```
