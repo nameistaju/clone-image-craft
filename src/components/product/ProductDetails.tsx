@@ -1,11 +1,14 @@
+
 import React, { useState } from 'react';
 import SizeSelector from '../ui/SizeSelector';
+import { useCart } from '@/components/cart/CartProvider';
 
 type Size = 'XS' | 'S' | 'M' | 'L' | 'XL';
 
 const ProductDetails: React.FC = () => {
   const [selectedSize, setSelectedSize] = useState<Size | null>(null);
   const [isAddedToCart, setIsAddedToCart] = useState(false);
+  const { addToCart } = useCart();
 
   const handleSizeChange = (size: Size) => {
     setSelectedSize(size);
@@ -13,9 +16,15 @@ const ProductDetails: React.FC = () => {
 
   const handleAddToCart = () => {
     if (selectedSize) {
+      addToCart({
+        id: 1,
+        name: "Silhouette No. 1 – Vermilion",
+        price: 7999,
+        size: selectedSize,
+        image: "https://cdn.builder.io/api/v1/image/assets/TEMP/e4cdbf8bdebec5334f2ba02d67ceda2a3dae858d?placeholderIfAbsent=true"
+      });
       setIsAddedToCart(true);
       setTimeout(() => setIsAddedToCart(false), 2000);
-      // Here you would typically dispatch to a cart state manager
     } else {
       alert('Please select a size first');
     }
@@ -63,11 +72,11 @@ const ProductDetails: React.FC = () => {
         <div className="flex gap-8 max-md:flex-col max-md:gap-5">
           <button 
             onClick={handleAddToCart}
-            className={`w-[196px] h-[66px] text-[#0D0D0D] text-[19px] font-medium tracking-[-0.387px] px-[30px] py-[14.51px] rounded-[8.706px] border-2 border-solid border-[#C3C3C3] max-md:w-full transition-colors ${isAddedToCart ? 'bg-green-100 border-green-500' : ''}`}
+            className={`w-[196px] h-[66px] text-[#0D0D0D] text-[19px] font-medium tracking-[-0.387px] px-[30px] py-[14.51px] rounded-[8.706px] border-2 border-solid border-[#C3C3C3] max-md:w-full transition-colors ${isAddedToCart ? 'bg-green-100 border-green-500' : 'hover:bg-gray-50'}`}
           >
             {isAddedToCart ? 'Added to Cart' : 'Add to Cart'}
           </button>
-          <button className="w-[428px] h-[66px] text-white text-[19px] font-medium tracking-[-0.387px] bg-black px-[137px] py-[14.51px] rounded-[8.706px] max-md:w-full">
+          <button className="w-[428px] h-[66px] text-white text-[19px] font-medium tracking-[-0.387px] bg-black px-[137px] py-[14.51px] rounded-[8.706px] max-md:w-full hover:bg-gray-800 transition-colors">
             Buy
           </button>
         </div>

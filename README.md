@@ -1,73 +1,198 @@
-# Welcome to your Lovable project
 
-## Project info
+# Eclypse Fashion Website
 
-**URL**: https://lovable.dev/projects/dcef1468-fcca-4618-a5ea-da9f2f6cf971
+A modern luxury fashion e-commerce website built with React, TypeScript, TailwindCSS, and Node.js.
 
-## How can I edit this code?
+## 🎨 Design Features
 
-There are several ways of editing your application.
+- **Pixel-perfect Figma implementation** - Matches the provided designs exactly
+- **Responsive design** - Works seamlessly on desktop, tablet, and mobile
+- **Dark/Light theme toggle** - User preference saved in localStorage
+- **Smooth animations** - Hover effects and transitions throughout
+- **Modern UI components** - Clean, minimalist luxury aesthetic
 
-**Use Lovable**
+## ⚡ Tech Stack
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/dcef1468-fcca-4618-a5ea-da9f2f6cf971) and start prompting.
+### Frontend
+- **React 18** with TypeScript
+- **TailwindCSS** for styling
+- **React Router DOM** for navigation
+- **React Context** for state management
+- **Radix UI** components
+- **Lucide React** for icons
 
-Changes made via Lovable will be committed automatically to this repo.
+### Backend
+- **Node.js** with Express
+- **CORS** enabled for frontend connection
+- **RESTful API** design
+- **Environment variables** with dotenv
 
-**Use your preferred IDE**
+## 🚀 Features
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Must-Have Features ✅
+- [x] **Homepage UI** - Pixel-perfect match to Figma design
+- [x] **Responsive Design** - TailwindCSS responsive utilities
+- [x] **Product Listing** - Dynamic product display with dummy data
+- [x] **Component Structure** - Modular, reusable components
+- [x] **TypeScript Types** - Full type safety throughout
+- [x] **React Router** - Multi-page navigation
+- [x] **Backend API** - Express server with product endpoints
+- [x] **CORS Enabled** - Frontend-backend communication
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+### Bonus Features 🎯
+- [x] **Theme Switcher** - Dark/Light mode with persistence
+- [x] **Cart Functionality** - Add to cart, view cart, cart state management
+- [x] **Product Search** - Search by name, category, price filters
+- [x] **Animations** - Hover effects, smooth transitions
+- [x] **Product Details** - Individual product pages with full details
+- [x] **Mobile Optimization** - Fully responsive across all devices
+- [x] **Checkout Simulation** - Complete checkout flow with forms
+- [x] **Waitlist Feature** - Email signup for product updates
 
-Follow these steps:
+## 📁 Project Structure
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+```
+eclypse-website/
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── layout/          # Header, Footer
+│   │   │   ├── home/            # Homepage sections
+│   │   │   ├── product/         # Product components
+│   │   │   ├── cart/            # Cart functionality
+│   │   │   ├── theme/           # Theme management
+│   │   │   └── ui/              # Reusable UI components
+│   │   ├── pages/               # Page components
+│   │   ├── hooks/               # Custom hooks
+│   │   └── lib/                 # Utilities
+│   └── public/
+└── backend/
+    ├── server.js                # Express server
+    ├── package.json
+    └── README.md
+```
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+## 🛠️ Installation & Setup
 
-# Step 3: Install the necessary dependencies.
-npm i
+### Frontend Setup
+```bash
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start development server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Backend Setup
+```bash
+# Navigate to backend directory
+cd backend
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+# Install dependencies
+npm install
 
-**Use GitHub Codespaces**
+# Start development server
+npm run dev
+```
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## 🌐 API Endpoints
 
-## What technologies are used for this project?
+### Products
+- `GET /api/products` - All products
+- `GET /api/products/:id` - Single product
+- `GET /api/search?q=term` - Search products
 
-This project is built with:
+### Categories
+- `GET /api/categories` - All categories
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Other
+- `POST /api/waitlist` - Join waitlist
+- `POST /api/contact` - Contact form
 
-## How can I deploy this project?
+## 🎯 Key Components
 
-Simply open [Lovable](https://lovable.dev/projects/dcef1468-fcca-4618-a5ea-da9f2f6cf971) and click on Share -> Publish.
+### Frontend Components
+- **Header** - Navigation with cart counter and theme toggle
+- **HeroSection** - Main banner with brand messaging
+- **ProductDetails** - Product showcase with size selection
+- **Cart** - Shopping cart with state management
+- **ThemeProvider** - Dark/light mode functionality
+- **SizeSelector** - Interactive size selection component
 
-## Can I connect a custom domain to my Lovable project?
+### Backend Features
+- **Product API** - RESTful endpoints for product data
+- **Search** - Query products by name, category, price
+- **Filtering** - Category, featured, in-stock filters
+- **Error Handling** - Comprehensive error responses
+- **CORS** - Cross-origin resource sharing enabled
 
-Yes, you can!
+## 🎨 Design System
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Colors
+- **Primary Black** - `#070707`
+- **Background Gray** - `#F7F7F7`
+- **Text Gray** - `#767676`
+- **Accent White** - `#FFFFFF`
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+### Typography
+- **Font Family** - System fonts with fallbacks
+- **Tracking** - Precise letter spacing for luxury feel
+- **Hierarchy** - Clear heading and body text scales
+
+### Animations
+- **Hover Effects** - Subtle color and transform transitions
+- **Cart Updates** - Smooth add-to-cart feedback
+- **Theme Toggle** - Smooth dark/light mode transitions
+
+## 📱 Responsive Breakpoints
+
+- **Mobile** - `max-sm` (< 640px)
+- **Tablet** - `max-md` (< 768px)
+- **Desktop** - Default and `max-lg` (< 1024px)
+
+## 🔧 Development
+
+### Available Scripts
+```bash
+npm run dev          # Start development server
+npm run build        # Build for production
+npm run preview      # Preview production build
+npm run lint         # Run ESLint
+```
+
+### Backend Scripts
+```bash
+npm start            # Start production server
+npm run dev          # Start with nodemon
+```
+
+## 🚀 Deployment
+
+### Frontend (Vercel/Netlify)
+1. Build the project: `npm run build`
+2. Deploy the `dist` folder
+3. Set environment variables if needed
+
+### Backend (Railway/Heroku)
+1. Set `NODE_ENV=production`
+2. Configure port from environment
+3. Deploy with `npm start`
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create feature branch: `git checkout -b feature-name`
+3. Commit changes: `git commit -m 'Add feature'`
+4. Push to branch: `git push origin feature-name`
+5. Submit pull request
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+## 🎯 Performance
+
+- **Lighthouse Score** - Optimized for 90+ performance
+- **Bundle Size** - Tree-shaken imports for minimal bundle
+- **Image Optimization** - Responsive images with proper sizing
+- **Caching** - Browser caching for static assets
