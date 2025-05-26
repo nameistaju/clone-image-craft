@@ -91,9 +91,42 @@
 
   body {
     @apply bg-background text-foreground transition-colors duration-300;
+    overflow-x: hidden;
   }
 
   html {
     transition: all 0.3s ease;
+    overflow-x: hidden;
   }
+
+  /* Mobile responsive utilities */
+  @media (max-width: 768px) {
+    body {
+      font-size: 14px;
+    }
+  }
+
+  /* Prevent horizontal scroll on mobile */
+  .container {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground));
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--accent-foreground));
 }
